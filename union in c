@@ -1,0 +1,179 @@
+Basic Union Example
+
+#include <stdio.h>
+union Data {
+    int i;
+    float f;
+    char c;
+};
+
+int main() {
+    union Data d;
+    d.i = 10;
+    printf("Integer: %d\n", d.i);
+    d.f = 3.14;
+    printf("Float: %.2f\n", d.f);
+    d.c = 'A';
+    printf("Character: %c\n", d.c);
+    return 0;
+}
+
+ 2. Display Size of Union
+
+#include <stdio.h>
+union Data {
+    int i;
+    float f;
+    double d;
+    char str[20];
+};
+
+int main() {
+    union Data data;
+    printf("Size of union = %lu bytes\n", sizeof(data));
+    return 0;
+}
+
+3. Accessing Union Members
+
+#include <stdio.h>
+union Number {
+    int i;
+    float f;
+};
+
+int main() {
+    union Number n;
+    n.i = 5;
+    printf("Integer value: %d\n", n.i);
+    n.f = 10.5;
+    printf("Float value: %.2f\n", n.f);
+    return 0;
+}
+
+ 4. Union with Input from User
+
+#include <stdio.h>
+union Value {
+    int i;
+    float f;
+};
+
+int main() {
+    union Value v;
+    printf("Enter an integer: ");
+    scanf("%d", &v.i);
+    printf("You entered: %d\n", v.i);
+    return 0;
+}
+
+5. Union and Structure Together
+
+#include <stdio.h>
+struct Student {
+    char name[20];
+    union {
+        int marks;
+        char grade;
+    } result;
+};
+
+int main() {
+    struct Student s = {"Arthi", {90}};
+    printf("Name: %s\nMarks: %d\n", s.name, s.result.marks);
+    return 0;
+}
+
+6. Union for Memory Efficiency
+
+#include <stdio.h>
+union Item {
+    int quantity;
+    float price;
+};
+
+int main() {
+    union Item item;
+    item.quantity = 50;
+    printf("Quantity: %d\n", item.quantity);
+    item.price = 99.99;
+    printf("Price: %.2f\n", item.price);
+    return 0;
+}
+
+ 7. Store Multiple Data Types
+
+#include <stdio.h>
+union Mixed {
+    int id;
+    char code;
+    float salary;
+};
+
+int main() {
+    union Mixed m;
+    m.id = 101;
+    printf("ID: %d\n", m.id);
+    m.code = 'Z';
+    printf("Code: %c\n", m.code);
+    m.salary = 5000.75;
+    printf("Salary: %.2f\n", m.salary);
+    return 0;
+}
+
+ 8. Use of Union in Real-Time Example
+
+#include <stdio.h>
+#include <string.h>
+
+union Employee {
+    int id;
+    char name[20];
+};
+
+int main() {
+    union Employee e;
+    e.id = 101;
+    printf("Employee ID: %d\n", e.id);
+    strcpy(e.name, "Arthi");
+    printf("Employee Name: %s\n", e.name);
+    return 0;
+}
+
+ 9. Union to Convert Integer to Bytes
+
+#include <stdio.h>
+union Convert {
+    int num;
+    unsigned char bytes[4];
+};
+
+int main() {
+    union Convert c;
+    c.num = 1025;
+    printf("Bytes: %u %u %u %u\n", c.bytes[0], c.bytes[1], c.bytes[2], c.bytes[3]);
+    return 0;
+}
+
+ 10. Anonymous Union Example
+
+#include <stdio.h>
+
+struct Data {
+    union {
+        int i;
+        float f;
+        char c;
+    };
+};
+
+int main() {
+    struct Data d;
+    d.i = 100;
+    printf("Integer: %d\n", d.i);
+    d.f = 25.5;
+    printf("Float: %.2f\n", d.f);
+    d.c = 'Z';
+    printf("Character: %c\n", d.c);
+    return 0;
+}
