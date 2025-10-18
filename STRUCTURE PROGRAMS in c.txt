@@ -1,0 +1,204 @@
+ STRUCTURE PROGRAMS (10 Examples)
+
+1️⃣ Basic Structure Example
+
+#include <stdio.h>
+struct Student {
+    int id;
+    char name[50];
+    float marks;
+};
+
+int main() {
+    struct Student s1 = {1, "Arthi", 95.5};
+    printf("ID: %d\nName: %s\nMarks: %.2f", s1.id, s1.name, s1.marks);
+    return 0;
+}
+
+
+2️⃣ Read and Display Structure Details
+
+#include <stdio.h>
+struct Student {
+    int id;
+    char name[50];
+    float marks;
+};
+
+int main() {
+    struct Student s;
+    printf("Enter ID, Name and Marks:\n");
+    scanf("%d", &s.id);
+    scanf("%s", s.name);
+    scanf("%f", &s.marks);
+
+    printf("\nStudent Details:\n");
+    printf("ID: %d\nName: %s\nMarks: %.2f", s.id, s.name, s.marks);
+    return 0;
+}
+
+
+
+3️⃣ Array of Structures (Multiple Students)
+
+#include <stdio.h>
+struct Student {
+    int id;
+    char name[50];
+    float marks;
+};
+
+int main() {
+    struct Student s[3];
+    for(int i = 0; i < 3; i++) {
+        scanf("%d %s %f", &s[i].id, s[i].name, &s[i].marks);
+    }
+
+    printf("\nStudent List:\n");
+    for(int i = 0; i < 3; i++) {
+        printf("%d\t%s\t%.2f\n", s[i].id, s[i].name, s[i].marks);
+    }
+    return 0;
+}
+
+
+
+4️⃣ Structure with Function (Display Function)
+
+#include <stdio.h>
+struct Employee {
+    int id;
+    char name[50];
+    float salary;
+};
+
+void display(struct Employee e) {
+    printf("ID: %d\nName: %s\nSalary: %.2f\n", e.id, e.name, e.salary);
+}
+
+int main() {
+    struct Employee e1 = {101, "Kethsiyal", 50000};
+    display(e1);
+    return 0;
+}
+
+
+
+5️⃣ Structure using Pointer
+
+#include <stdio.h>
+struct Student {
+    int id;
+    char name[50];
+};
+
+int main() {
+    struct Student s = {1, "Arthi"};
+    struct Student *ptr = &s;
+
+    printf("ID: %d\n", ptr->id);
+    printf("Name: %s", ptr->name);
+    return 0;
+}
+
+
+
+6️⃣ Nested Structure (Structure inside Structure)
+
+#include <stdio.h>
+struct Date {
+    int day, month, year;
+};
+struct Student {
+    int id;
+    char name[50];
+    struct Date dob;
+};
+
+int main() {
+    struct Student s = {1, "Arthi", {18, 10, 2004}};
+    printf("ID: %d\nName: %s\nDOB: %d/%d/%d",
+           s.id, s.name, s.dob.day, s.dob.month, s.dob.year);
+    return 0;
+}
+
+
+
+7️⃣ Calculate Total Marks using Structure
+
+#include <stdio.h>
+struct Student {
+    char name[50];
+    int m1, m2, m3;
+};
+
+int main() {
+    struct Student s;
+    scanf("%s %d %d %d", s.name, &s.m1, &s.m2, &s.m3);
+    int total = s.m1 + s.m2 + s.m3;
+    printf("Name: %s\nTotal Marks: %d", s.name, total);
+    return 0;
+}
+
+
+
+8️⃣ Pass Structure to Function
+
+
+#include <stdio.h>
+struct Employee {
+    int id;
+    char name[50];
+    float salary;
+};
+
+void printEmp(struct Employee e) {
+    printf("ID: %d\nName: %s\nSalary: %.2f", e.id, e.name, e.salary);
+}
+
+int main() {
+    struct Employee e1 = {102, "Veena", 48000};
+    printEmp(e1);
+    return 0;
+}
+
+
+
+9️⃣ Array of Structures with Average Salary
+
+#include <stdio.h>
+struct Employee {
+    int id;
+    char name[50];
+    float salary;
+};
+
+int main() {
+    struct Employee e[3];
+    float total = 0;
+    for(int i = 0; i < 3; i++) {
+        scanf("%d %s %f", &e[i].id, e[i].name, &e[i].salary);
+        total += e[i].salary;
+    }
+    printf("Average Salary = %.2f", total / 3);
+    return 0;
+}
+
+
+
+🔟 Structure for Book Details
+
+#include <stdio.h>
+struct Book {
+    int id;
+    char title[50];
+    char author[50];
+    float price;
+};
+
+int main() {
+    struct Book b1 = {101, "C Programming", "Dennis Ritchie", 299.50};
+    printf("Book ID: %d\nTitle: %s\nAuthor: %s\nPrice: %.2f",
+           b1.id, b1.title, b1.author, b1.price);
+    return 0;
+}
